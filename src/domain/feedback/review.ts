@@ -1,4 +1,4 @@
-import { ReviewContent } from "./reviewContent";
+import { ReviewContent } from "./reviewContent.js";
 import { v4 as uuid } from "uuid";
 
 export class Review {

@@ -1,5 +1,5 @@
 import { IReviewRepository, Review } from "@ofood/domain";
-import { CreateReviewCommand, CreateReviewCommandData } from "./createReviewCommand";
+import { CreateReviewCommand, CreateReviewCommandData } from "./createReviewCommand.js";
 
 export class CreateReviewCommandHandler implements CreateReviewCommand {
   private readonly _reviewRepository: IReviewRepository;

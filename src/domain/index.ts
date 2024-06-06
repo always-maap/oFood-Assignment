@@ -1,2 +1,2 @@
-export * from "./feedback/review";
-export * from "./feedback/IReviewRepository";
+export * from "./feedback/review.js";
+export * from "./feedback/IReviewRepository.js";

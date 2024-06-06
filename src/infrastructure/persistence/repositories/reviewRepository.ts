@@ -1,6 +1,6 @@
 import { IReviewRepository, Review } from "@ofood/domain";
-import { db } from "../configuration/db";
-import { reviews } from "../configuration/reviews.schema";
+import { db } from "../configuration/db.js";
+import { reviews } from "../configuration/reviews.schema.js";
 
 export class ReviewRepository implements IReviewRepository {
   async createReview(review: Review): Promise<void> {

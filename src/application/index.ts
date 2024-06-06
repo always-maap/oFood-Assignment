@@ -1,2 +1,2 @@
-export * from "./review/command/createReviewCommand";
-export * from "./review/command/createReviewCommandHandler";
+export * from "./review/command/createReviewCommand.js";
+export * from "./review/command/createReviewCommandHandler.js";

@@ -1,1 +1,1 @@
-export * from "./persistence/repositories/reviewRepository";
+export * from "./persistence/repositories/reviewRepository.js";

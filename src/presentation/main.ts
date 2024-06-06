@@ -3,8 +3,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 
-import { routes } from "./router";
-import logger from "./logger";
+import { routes } from "./router.js";
+import logger from "./logger.js";
 
 (async () => {
   const app = express();

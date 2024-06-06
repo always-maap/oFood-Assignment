@@ -1,11 +1,11 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "caa8add0-c3db-4e72-aca3-f037cc840698",
+  "id": "82a914b8-75ba-4b7a-bbd1-b69cc88bfd82",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "countries": {
-      "name": "countries",
+    "reviews": {
+      "name": "reviews",
       "columns": {
         "id": {
           "name": "id",
@@ -60,8 +60,8 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {
-        "countries_id": {
-          "name": "countries_id",
+        "reviews_id": {
+          "name": "reviews_id",
           "columns": [
             "id"
           ]

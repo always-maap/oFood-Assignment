@@ -2,9 +2,10 @@
   "name": "ofood",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -r tsconfig-paths/register ./src/presentation/main.ts",
+    "dev": "nodemon -x node --no-warnings --loader ./loader.js ./src/presentation/main.ts",
     "db:generate": "drizzle-kit generate --config ./src/infrastructure/persistence/configuration/drizzle.config.ts",
     "db:migrate": "drizzle-kit migrate --config ./src/infrastructure/persistence/configuration/drizzle.config.ts"
   },

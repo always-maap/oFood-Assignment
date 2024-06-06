@@ -1,6 +1,6 @@
-import logger from "pino-http";
+import { pinoHttp } from "pino-http";
 
-export default logger({
+export default pinoHttp({
   quietReqLogger: true,
   transport: {
     target: "pino-http-print",
