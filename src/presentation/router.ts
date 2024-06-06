@@ -1,9 +1,11 @@
 import { Router } from "express";
 
 import { CreateReviewCommandHandler } from "@ofood/application";
+import { ReviewRepository } from "@ofood/infrastructure";
 import { ReviewController } from "./controller/review";
 
-const reviewController = new ReviewController(new CreateReviewCommandHandler());
+const reviewRepository = new ReviewRepository();
+const reviewController = new ReviewController(new CreateReviewCommandHandler(reviewRepository));
 
 export const routes = Router();
 

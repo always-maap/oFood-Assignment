@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const CreateReviewRequestSchema = z.object({
-  order_id: z.number(),
-  store_id: z.number(),
+  order_id: z.string(),
+  store_id: z.string(),
   order_feedback: z.object({
     rating: z.number(),
     comment: z.string(),

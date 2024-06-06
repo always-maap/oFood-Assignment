@@ -7,8 +7,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
@@ -23,7 +21,8 @@
     "src/domain/**/*.ts",
     "src/infrastructure/**/*.ts",
     "src/application/**/*.ts",
-    "src/contracts/**/*.ts"
+    "src/contracts/**/*.ts",
+    "src/presentation/main.ts"
   ],
   "exclude": ["node_modules"]
 }

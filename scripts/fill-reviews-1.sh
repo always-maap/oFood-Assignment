@@ -1,8 +1,8 @@
 URL="$1"
 
 JSON_DATA='{
-  "order_id": 1122334455,
-  "store_id": 111111,
+  "order_id": "1122334455",
+  "store_id": "111111",
   "order_feedback": {
     "rating": 5,
     "comment": "بهترین کیفیت در جردن"

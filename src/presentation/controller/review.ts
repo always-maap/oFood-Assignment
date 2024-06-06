@@ -11,9 +11,9 @@ export class ReviewController {
   }
 
   public createReview = async (req: Request, res: Response) => {
-    const { data, error } = CreateReviewRequestSchema.safeParse(req.body);
-    if (error) {
-      res.status(400).send({ error: error.errors });
+    const { data, error, success } = CreateReviewRequestSchema.safeParse(req.body);
+    if (!success) {
+      return res.status(400).send({ error: error.errors });
     }
 
     await this.createReviewCommand.handle(data);
