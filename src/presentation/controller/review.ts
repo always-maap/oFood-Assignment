@@ -1,13 +1,15 @@
 import type { Request, Response } from "express";
 
-import { CreateReviewCommand } from "@ofood/application";
+import { CreateReviewCommand, GetStoreRatingsQuery } from "@ofood/application";
 import { CreateReviewRequestSchema } from "@ofood/contracts";
 
 export class ReviewController {
   private readonly createReviewCommand: CreateReviewCommand;
+  private readonly getStoreRatingCommand: GetStoreRatingsQuery;
 
-  constructor(createReviewCommand: CreateReviewCommand) {
+  constructor(createReviewCommand: CreateReviewCommand, getStoreRatingCommand: GetStoreRatingsQuery) {
     this.createReviewCommand = createReviewCommand;
+    this.getStoreRatingCommand = getStoreRatingCommand;
   }
 
   public createReview = async (req: Request, res: Response) => {
@@ -19,4 +21,6 @@ export class ReviewController {
     await this.createReviewCommand.handle(data);
     res.status(201).send();
   };
+
+  public getStoreRating = async (req: Request, res: Response) => {};
 }

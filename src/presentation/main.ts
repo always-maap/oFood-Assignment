@@ -6,21 +6,21 @@ import cors from "cors";
 import { routes } from "./router.js";
 import logger from "./logger.js";
 
-(async () => {
-  const app = express();
-  const port = process.env.PORT || 8080;
+const app = express();
+const port = process.env.PORT || 8080;
 
+if (process.env.NODE_ENV === "development") {
   app.use(logger);
+}
 
-  app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-  app.use(bodyParser.json());
+app.use(bodyParser.json());
 
-  app.use(cors());
+app.use(cors());
 
-  app.use(routes);
+app.use(routes);
 
-  app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-  });
-})();
+app.listen(port, () => {
+  console.log(`🚀 Server running at http://localhost:${port}`);
+});

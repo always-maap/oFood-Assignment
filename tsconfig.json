@@ -22,7 +22,7 @@
     "src/infrastructure/**/*.ts",
     "src/application/**/*.ts",
     "src/contracts/**/*.ts",
-    "src/presentation/main.ts"
+    "src/worker/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

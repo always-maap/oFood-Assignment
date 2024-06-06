@@ -11,3 +11,5 @@ let connection = await mysql.createConnection({
 });
 
 export const db = drizzle(connection!, { schema: { ...reviews }, mode: "default" });
+
+export type IDbContext = typeof db;
