@@ -5,9 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -x node --no-warnings --loader ./loader.js ./src/presentation/main.ts",
-    "swagger": "node --no-warnings --loader ./loader.js ./src/presentation/configuration/swagger.ts",
-    "worker:dev": "nodemon -x node --no-warnings --loader ./loader.js ./src/worker/main.ts",
+    "dev": "tsx watch ./src/presentation/main.ts",
+    "swagger": "tsx ./src/presentation/configuration/swagger.ts",
+    "worker:dev": "tsx watch ./src/worker/main.ts",
     "db:generate": "drizzle-kit generate --config ./src/infrastructure/persistence/configuration/drizzle.config.ts",
     "db:migrate": "drizzle-kit migrate --config ./src/infrastructure/persistence/configuration/drizzle.config.ts",
     "build": "tsc",
@@ -36,6 +36,7 @@
     "drizzle-orm": "^0.31.1",
     "express": "^4.19.2",
     "express-http-problem-details": "^0.2.1",
+    "http-problem-details": "^0.1.5",
     "http-problem-details-mapper": "^0.1.7",
     "mysql2": "^3.10.0",
     "node-schedule": "^2.1.1",
@@ -45,6 +46,7 @@
     "redis": "^4.6.14",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1",
+    "tsx": "^4.13.2",
     "uuid": "^9.0.1",
     "zod": "^3.23.8"
   }

@@ -1,4 +1,4 @@
-import type { Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 
 import { CreateReviewCommand, GetStoreRatingsQuery } from "@ofood/application";
 import { CreateReviewRequestSchema } from "@ofood/contracts";

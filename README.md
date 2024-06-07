@@ -8,6 +8,10 @@
 
 ## About
 
+## Architecture
+
+## Technologies
+
 ## Decisions
 
 -

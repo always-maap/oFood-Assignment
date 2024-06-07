@@ -1,4 +1,4 @@
-import { Router, Request, Response } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 
 import { CreateReviewCommandHandler, GetStoreRatingsQueryHandler } from "@ofood/application";
 import { ReviewRepository, StoreRatingsCacheProvider, db, redisClient } from "@ofood/infrastructure";
@@ -12,7 +12,7 @@ const reviewController = new ReviewController(createReviewCommandHandler, getSto
 
 export const routes = Router();
 
-routes.post("/reviews", (req: Request, res: Response) => {
+routes.post("/reviews", async (req: Request, res: Response, next: NextFunction) => {
   /*
   #swagger.tags = ['Reviews']
   #swagger.requestBody = {
@@ -20,7 +20,12 @@ routes.post("/reviews", (req: Request, res: Response) => {
     schema: { $ref: "#/components/schemas/review" }
   } 
   */
-  reviewController.createReview(req, res);
+
+  try {
+    await reviewController.createReview(req, res);
+  } catch (error) {
+    next(error);
+  }
 });
 
 routes.get("/reviews/ratings/:storeId", (req: Request, res: Response) => {
