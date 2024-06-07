@@ -1,7 +1,7 @@
 {
   "name": "ofood",
   "version": "1.0.0",
-  "description": "",
+  "description": "oFood API",
   "type": "module",
   "main": "index.js",
   "scripts": {
