@@ -10,7 +10,6 @@ export class StoreRatingsCacheProvider implements IStoreRatingsCacheProvider {
   }
 
   async set(storeId: string, data: Record<string, string>): Promise<void> {
-    console.log(data);
     const key = storeRatingsCacheKey(storeId);
 
     await this.cache.hSet(key, Object.entries(data));

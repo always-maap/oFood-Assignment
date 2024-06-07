@@ -11,6 +11,6 @@ export class GetStoreRatingsQueryHandler implements GetStoreRatingsQuery {
   async handle(data: GetStoreRatingsQueryData): Promise<void> {
     const x = await this.cache.get(data.storeId);
 
-    console.log(x);
+    return x;
   }
 }

@@ -22,5 +22,9 @@ export class ReviewController {
     res.status(201).send();
   };
 
-  public getStoreRating = async (req: Request, res: Response) => {};
+  public getStoreRating = async (req: Request, res: Response) => {
+    const storeId = req.params.storeId;
+    const rating = await this.getStoreRatingCommand.handle({ storeId });
+    res.status(200).send({ rating });
+  };
 }
