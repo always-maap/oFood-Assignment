@@ -1,10 +1,14 @@
-export type GetStoreRatingsResponse = {
-  rating: number;
-  comments_count: number;
-  rates_count: number;
-  rating_one_count: number;
-  rating_two_count: number;
-  rating_three_count: number;
-  rating_four_count: number;
-  rating_five_count: number;
-};
+import { z } from "zod";
+
+export const GetStoreRatingsSchema = z.object({
+  rating: z.number(),
+  comments_count: z.number(),
+  rates_count: z.number(),
+  rating_one_count: z.number(),
+  rating_two_count: z.number(),
+  rating_three_count: z.number(),
+  rating_four_count: z.number(),
+  rating_five_count: z.number(),
+});
+
+export type GetStoreRatingsResponse = z.infer<typeof GetStoreRatingsSchema>;

@@ -3,6 +3,7 @@ import { count, eq, sql } from "drizzle-orm";
 import { IReviewRepository, Review } from "@ofood/domain";
 import { reviews } from "../configuration/reviews.schema.js";
 import { IDbContext } from "../configuration/db.js";
+import { GetStoreRatingsResponse } from "@ofood/contracts";
 
 export class ReviewRepository implements IReviewRepository {
   private readonly db: IDbContext;
@@ -29,8 +30,8 @@ export class ReviewRepository implements IReviewRepository {
     return storeIds.map((x) => x.store_id);
   }
 
-  async getStoreRatingsAggregate(storeId: string): Promise<any> {
-    const [x] = await this.db
+  async getStoreRatingsAggregate(storeId: string): Promise<GetStoreRatingsResponse> {
+    const [storeRatings] = await this.db
       .select({
         rating: sql<number>`CAST(AVG(${reviews.order_rating}) as FLOAT)`,
         rates_count: count(reviews.order_rating),
@@ -45,6 +46,6 @@ export class ReviewRepository implements IReviewRepository {
       .where(eq(reviews.store_id, storeId))
       .groupBy(reviews.store_id);
 
-    return x;
+    return storeRatings;
   }
 }

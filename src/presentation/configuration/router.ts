@@ -28,14 +28,18 @@ routes.post("/reviews", async (req: Request, res: Response, next: NextFunction) 
   }
 });
 
-routes.get("/reviews/ratings/:storeId", (req: Request, res: Response) => {
+routes.get("/reviews/ratings/:storeId", async (req: Request, res: Response, next: NextFunction) => {
   /*
   #swagger.tags = ['Reviews']
   #swagger.parameters['storeId'] = {
     in: 'path'
   } 
   */
-  reviewController.getStoreRating(req, res);
+  try {
+    await reviewController.getStoreRating(req, res);
+  } catch (error) {
+    next(error);
+  }
 });
 
 routes.get("/health", (req: Request, res: Response) => {

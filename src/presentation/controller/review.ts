@@ -2,6 +2,7 @@ import type { NextFunction, Request, Response } from "express";
 
 import { CreateReviewCommand, GetStoreRatingsQuery } from "@ofood/application";
 import { CreateReviewRequestSchema } from "@ofood/contracts";
+import { ArgumentError } from "@ofood/domain";
 
 export class ReviewController {
   private readonly createReviewCommand: CreateReviewCommand;
@@ -15,7 +16,7 @@ export class ReviewController {
   public createReview = async (req: Request, res: Response) => {
     const { data, error, success } = CreateReviewRequestSchema.safeParse(req.body);
     if (!success) {
-      return res.status(400).send({ error: error.errors });
+      throw new ArgumentError(error);
     }
 
     await this.createReviewCommand.handle(data);
@@ -24,7 +25,7 @@ export class ReviewController {
 
   public getStoreRating = async (req: Request, res: Response) => {
     const storeId = req.params.storeId;
-    const rating = await this.getStoreRatingCommand.handle({ storeId });
-    res.status(200).send({ rating });
+    const storeRatingsResult = await this.getStoreRatingCommand.handle({ storeId });
+    res.status(200).send(storeRatingsResult);
   };
 }

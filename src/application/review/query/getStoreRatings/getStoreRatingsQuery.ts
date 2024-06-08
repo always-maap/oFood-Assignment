@@ -1,5 +1,7 @@
+import { GetStoreRatingsResponse } from "@ofood/contracts";
+
 export interface GetStoreRatingsQuery {
-  handle(data: GetStoreRatingsQueryData): Promise<void>;
+  handle(data: GetStoreRatingsQueryData): Promise<GetStoreRatingsResponse>;
 }
 
 export type GetStoreRatingsQueryData = {
