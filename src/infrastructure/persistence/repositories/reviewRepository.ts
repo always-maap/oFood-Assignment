@@ -31,6 +31,8 @@ export class ReviewRepository implements IReviewRepository {
   }
 
   async getStoreRatingsAggregate(storeId: string): Promise<GetStoreRatingsResponse> {
+    // Prepared statement and ISOLATION LEVEL are bit buggy https://github.com/drizzle-team/drizzle-orm/issues/2133
+    // await this.db.execute(sql`SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;`);
     const [storeRatings] = await this.db
       .select({
         rating: sql<number>`CAST(AVG(${reviews.order_rating}) as FLOAT)`,
