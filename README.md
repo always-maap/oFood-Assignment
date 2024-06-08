@@ -14,6 +14,7 @@ This project is about handling user reviews and aggregating the result. The proj
 
 The project is following Clean architecture, Domain-Driven Design, and CQRS principles.
 The aggregation of reviews are handled by a separate worker.
+It's an express.js application which uses Swagger to generate documentation and problem-details to report the errors.
 
 ## Technologies
 
