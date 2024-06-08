@@ -3,20 +3,31 @@
     <img src="./docs/ofood.webp" alt="oFood logo" width="200px" />
   </a>
 
-  <p>oFood Software engineer Assignment - Summer 2024</p>
+  <p>oFood Software engineer Assignment - Spring 2024</p>
 </div>
 
 ## About
 
+This project is about handling user reviews and aggregating the result. The project is part of oFood 2024 spring interview process for Software engineer role.
+
 ## Architecture
+
+The project is following Clean architecture, Domain-Driven Design, and CQRS principles.
+The aggregation of reviews are handled by a separate worker.
 
 ## Technologies
 
-## Decisions
+- Node.js
+- TypeScript
+- Express.js
+- MySQL
+- Redis
+- Drizzle ORM
+- Swagger
+- Problem details
+- Zod
 
--
-
-## Contribution
+## Setup
 
 First, use docker-compose to run the needed services:
 
